@@ -24,10 +24,10 @@ mongoose.connect(dbURI, (e) => {
   }
 });
 
-const redisURL = process.env.REDISCLOUD_URL || 
-  'redis://default:4bAhQXId0oimFaV5a4EqnxPg2V9CucJK@redis-14549.c14.us-east-1-2.ec2.cloud.redislabs.com:14549';
+const redisURL = process.env.REDISCLOUD_URL
+  || 'redis://default:4bAhQXId0oimFaV5a4EqnxPg2V9CucJK@redis-14549.c14.us-east-1-2.ec2.cloud.redislabs.com:14549';
 
-let redisClient = redis.createClient({
+const redisClient = redis.createClient({
   legacyMode: true,
   url: redisURL,
 });
