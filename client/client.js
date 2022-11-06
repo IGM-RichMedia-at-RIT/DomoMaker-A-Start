@@ -53,6 +53,7 @@ const init = () => {
       const username = signupForm.querySelector('#user').value;
       const pass = signupForm.querySelector('#pass').value;
       const pass2 = signupForm.querySelector('#pass2').value;
+      const _csrf = signupForm.querySelector('#_csrf').value;
 
       if(!username || !pass || !pass2) {
         handleError('All fields are required!');
@@ -64,7 +65,7 @@ const init = () => {
         return false;
       }
 
-      sendPost(signupForm.getAttribute('action'), {username, pass, pass2});
+      sendPost(signupForm.getAttribute('action'), {username, pass, pass2, _csrf});
       return false;
     });
   }
@@ -81,13 +82,14 @@ const init = () => {
 
       const username = loginForm.querySelector('#user').value;
       const pass = loginForm.querySelector('#pass').value;
+      const _csrf = loginForm.querySelector('#_csrf').value;
 
       if(!username || !pass) {
         handleError('Username or password is empty!');
         return false;
       }
 
-      sendPost(loginForm.getAttribute('action'), {username, pass});
+      sendPost(loginForm.getAttribute('action'), {username, pass, _csrf});
       return false;
     });
   }
@@ -104,13 +106,14 @@ const init = () => {
 
       const name = domoForm.querySelector('#domoName').value;
       const age = domoForm.querySelector('#domoAge').value;
+      const _csrf = domoForm.querySelector('#_csrf').value;
 
       if(!name || !age) {
         handleError('All fields are required!');
         return false;
       }
 
-      sendPost(domoForm.getAttribute('action'), {name, age});
+      sendPost(domoForm.getAttribute('action'), {name, age, _csrf});
       return false;
     });
   }
